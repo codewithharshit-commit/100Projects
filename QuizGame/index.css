@@ -88,13 +88,13 @@ body{
     border-color: #285A48;
 }
 
-.answer-btn.correct {
-  background-color: #e6fff0;
+.answer-button.correct {
+  background-color: #dcffea;
   border-color: #a3f0c4;
   color: #28a745;
 }
 
-.answer-btn.incorrect {
+.answer-button.incorrect {
   background-color: #fff0f0;
   border-color: #ffbdbd;
   color: #dc3545;

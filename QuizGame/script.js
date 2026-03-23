@@ -69,6 +69,7 @@ totalQuestionsSpan.textContent = quizQuestions.length;
 maxScoreSpan.textContent = quizQuestions.length;
 
 startButton.addEventListener("click",startQuiz);
+restartButton.addEventListener("click",restartQuiz)
 
 function startQuiz(){
     currentQuestionIndex = 0;
@@ -101,9 +102,74 @@ function showQuestion(){
     // what is dataset? it's a property of the button element that allows you to store custom data
         button.dataset.correct = answer.correct;
 
-        // button.addEventListener("click", selectAnswer);
+        button.addEventListener("click", selectAnswer);
 
         answersContainer.appendChild(button);
     });
 }
+
+function selectAnswer(event){
+    if(answerDisabled) return;
+
+    answerDisabled = true;
+
+    const selectedButton = event.target;
+    const isCorrect = selectedButton.dataset.correct === "true";
+
+    Array.from(answersContainer.children).forEach(answer => {
+        if(answer.dataset.correct === "true"){
+            answer.classList.add("correct")
+        }else if(answer === selectedButton){
+             answer.classList.add("incorrect")
+        }
+    })
+
+    if (isCorrect) {
+        score++;
+        scoreSpan.textContent = score;
+    }
+
+    setTimeout(() => {
+    currentQuestionIndex++;
+
+    // check if there are more questions or if the quiz is over
+        if (currentQuestionIndex < quizQuestions.length) {
+            showQuestion();
+        } else {
+            showResults();
+        }
+    }, 1000);
+}
+
+function showResults(){
+    quizScreen.classList.remove('active');
+    resultScreen.classList.add('active');
+
+    finalScoreSpan.textContent = score;
+    const percentage = (score/quizQuestions.length) * 100;
+
+    if (percentage === 100) {
+    resultMessage.textContent = "Perfect! You're a genius!";
+  } else if (percentage >= 80) {
+    resultMessage.textContent = "Great job! You know your stuff!";
+  } else if (percentage >= 60) {
+    resultMessage.textContent = "Good effort! Keep learning!";
+  } else if (percentage >= 40) {
+    resultMessage.textContent = "Not bad! Try again to improve!";
+  } else {
+    resultMessage.textContent = "Keep studying! You'll get better!";
+  }
+}
+
+
+function restartQuiz(){
+    resultScreen.classList.remove('active')
+
+    startQuiz();
+}
+
+
+
+
+
 
