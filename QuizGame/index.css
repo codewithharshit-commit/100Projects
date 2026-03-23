@@ -1,0 +1,143 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins';
+}
+
+body{
+    background-color: #091413;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.container{
+    background-color: B0E4CC;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+    position: relative;
+}
+
+.screen{
+    display: none;
+    padding: 2rem;
+    text-align: center;
+}
+
+.screen.active{
+    display: block;
+}
+
+#start-screen h1{
+    color: 408A71;
+    margin-bottom: 20px;
+}
+
+#start-screen p{
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+#start-btn{
+    width: 20%;
+    height: 40px;
+    background-color: 285A48;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+}
+
+.question-text{
+    color: #285A48;
+    margin-bottom: 20px;
+}
+
+.quiz-info{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.answers-container{
+    display: flex;
+    flex-direction:column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.answer-button{
+    background-color: #408A71;
+    color: #333;
+    border: 2px solid #eadbc8;
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.answer-button:hover{
+    cursor: pointer;
+    border-color: #285A48;
+}
+
+.answer-btn.correct {
+  background-color: #e6fff0;
+  border-color: #a3f0c4;
+  color: #28a745;
+}
+
+.answer-btn.incorrect {
+  background-color: #fff0f0;
+  border-color: #ffbdbd;
+  color: #dc3545;
+}
+
+
+.progress-bar {
+  height: 10px;
+  background-color: #f8f0e5;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #285A48;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+#result-screen h1{
+    color: 408A71;
+    margin-bottom: 20px;
+}
+
+.result-info{
+    margin: 20px;
+    background-color: #285A48;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.result-info p{
+    color: white;
+}
+
+#restart-btn{
+    background-color: #408A71;
+    color: #333;
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
