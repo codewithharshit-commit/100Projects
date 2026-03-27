@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "poppins";
+}
+
+body {
+  background: linear-gradient(90deg, #1cb5e0 0%, #000851 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: aliceblue;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+h1 {
+  color: #006b88;
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+h1:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 3px;
+  background-color: #667eea;
+  border-radius: 2px;
+}
