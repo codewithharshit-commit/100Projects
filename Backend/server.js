@@ -1,22 +1,10 @@
-const express = require("express");
+// server ko start krna
+const app = require("./src/app");
 
-const app = express();
-app.use(express.json());
+const connectDB = require("./src/db/db");
 
-const notes = [];
+connectDB();
 
-app.post("/notes", (req, res) => {
-  notes.push(req.body);
-
-  res.status(201).json({
-    message: "note added Successfuly",
-  });
+app.listen(3000, () => {
+  console.log("server is running");
 });
-
-app.listen(3000);
-
-const request = async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-  const data = await response.json();
-  console.log(data);
-};
